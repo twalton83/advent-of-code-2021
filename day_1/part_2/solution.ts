@@ -4,7 +4,7 @@ const filePath = path.join(__dirname, 'input.txt');
 
 let inputData: number[];
 
-fs.readFile(filePath, 'utf8', (err, data) => {
+fs.readFile(filePath, 'utf8', (err: Error, data: string) => {
   if (err) {
     console.error(err)
     return
@@ -31,3 +31,5 @@ function processData(input: number[]) {
   }, { increase: 0, decrease: 0 })
 }
 
+
+export { }
