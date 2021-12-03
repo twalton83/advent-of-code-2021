@@ -15,9 +15,9 @@ fs.readFile(filePath, 'utf8', (err: Error, data: string) => {
 
 function processData(input: number[]) {
   return input.reduce((prev, curr, index, arr) => {
-    if (index === 0 || arr[index] === arr[index - 1]) {
+    if (index === 0 || arr[index] === arr[index - 3]) {
       return prev
-    } else if (arr[index] > arr[index - 1]) {
+    } else if (arr[index] > arr[index - 3]) {
       return ({
         "increase": prev["increase"] += 1,
         "decrease": prev["decrease"]
