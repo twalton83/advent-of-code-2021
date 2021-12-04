@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path');
-const filePath = path.join(__dirname, 'input.txt');
+const filePath = path.resolve('../day_1', '../input.txt');
 
 let inputData: number[];
 
@@ -15,20 +15,8 @@ fs.readFile(filePath, 'utf8', (err: Error, data: string) => {
 
 function processData(input: number[]) {
   return input.reduce((prev, curr, index, arr) => {
-    if (index === 0 || arr[index] === arr[index - 1]) {
-      return prev
-    } else if (arr[index] > arr[index - 1]) {
-      return ({
-        "increase": prev["increase"] += 1,
-        "decrease": prev["decrease"]
-      })
-    } else {
-      return ({
-        "increase": prev["increase"],
-        "decrease": prev["decrease"] += 1
-      })
-    }
-  }, { increase: 0, decrease: 0 })
+    return arr[index] > arr[index - 1] ? prev += 1 : prev
+  }, 0)
 }
 
 export { }
